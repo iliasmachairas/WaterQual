@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>676</width>
+    <height>716</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>670</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>150</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>600</y>
+     <width>251</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Open output file after running algorithm</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>630</y>
+     <width>611</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>670</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>10</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Accepted Cloud percentage (%)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Pick the date</string>
+   </property>
+  </widget>
+  <widget class="QgsFilterLineEdit" name="mLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>570</y>
+     <width>211</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="qgisRelation" stdset="0">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>570</y>
+     <width>23</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>550</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Select the output directory</string>
+   </property>
+  </widget>
+  <widget class="QgsFilterLineEdit" name="mLineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>40</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="qgisRelation" stdset="0">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>430</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Water Quality Analysis</string>
+   </property>
+  </widget>
+  <widget class="QCalendarWidget" name="calendarWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>261</width>
+     <height>171</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_2">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>30</y>
+     <width>111</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cloud shadows</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_3">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>60</y>
+     <width>161</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clouds low probability</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_4">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>90</y>
+     <width>171</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clouds medium probability</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_5">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>120</y>
+     <width>171</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clouds high probability</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_6">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>150</y>
+     <width>171</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clouds high probability</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_7">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>180</y>
+     <width>171</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Thin cirrus</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>10</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Land-uses for removal</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>210</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Select study area</string>
+   </property>
+  </widget>
+  <widget class="QgsFilterLineEdit" name="mLineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>270</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="qgisRelation" stdset="0">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QgsFilterLineEdit" name="mLineEdit_4">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>300</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="qgisRelation" stdset="0">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QgsFilterLineEdit" name="mLineEdit_5">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>330</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="qgisRelation" stdset="0">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QgsFilterLineEdit" name="mLineEdit_6">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>300</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="qgisRelation" stdset="0">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>250</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Top</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>280</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Right</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>280</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Left</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>310</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Bottom</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>230</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Draw the area</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>210</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Sellect all</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>210</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unselect all</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>430</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Bands to get</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_3">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>390</y>
+     <width>181</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Just get the data</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_5">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>460</y>
+     <width>83</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Algorithm A</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>490</y>
+     <width>83</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Algorithm B</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>360</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Pick the purpose</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>390</y>
+     <width>141</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Water Quality Analysis</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>460</y>
+     <width>83</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>All</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>490</y>
+     <width>83</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>RGB</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>520</y>
+     <width>141</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>RGB, NIR, and SWIR</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_8">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>520</y>
+     <width>171</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Report Creation</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFilterLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qgsfilterlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
