@@ -1,0 +1,5 @@
+- add the names of the bands
+- create NDWI tiff image as well
+- add an otion in config for teh two modes 
+    -- get all bands, get RGB, third option
+- remove clouds etc and estimate teh percentage
