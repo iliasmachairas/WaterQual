@@ -6,7 +6,7 @@
 name=WaterQual
 qgisMinimumVersion=3.0
 description=Sentinel-2 water quality monitoring for lakes, reservoirs, and other inland/coastal waterbodies — chlorophyll-a and turbidity proxies (NDCI, NDTI) plus calibrated chlorophyll-a estimators (OC3, Gilerson), no account or API key required.
-version=0.1.0
+version=0.1.1
 author=Ilias Machairas, Ashish Kuruvila
 email=iliasmachairas@outlook.com
 
@@ -19,7 +19,9 @@ repository=https://github.com/iliasmachairas/WaterQual
 # Recommended items:
 
 hasProcessingProvider=no
-changelog=0.1.0
+changelog=0.1.1
+    - Fixed a flake8 F821 error (undefined name 'standard_library') in plugin_upload.py, flagged by the QGIS plugin repo's code quality check.
+    0.1.0
     - First release.
     - Four water-quality algorithms over Sentinel-2 L2A: NDCI and NDTI (quick unitless chlorophyll-a/turbidity proxies) plus OC3 and Gilerson (calibrated chlorophyll-a estimators for clear vs. turbid water), restricted to water pixels via the SCL band, with an optional raw RGB+NIR+SWIR companion GeoTIFF for visual monitoring.
     - Cloud/shadow masking and cloud-percentage thresholds moved into a collapsed "Advanced masking options" panel with sane defaults.
