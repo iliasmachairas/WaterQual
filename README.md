@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon.png" width="96" alt="Lake Analyzer logo" />
+  <img src="lake.png" width="120" alt="Lake Analyzer logo" />
 </p>
 
 <h1 align="center">Lake Analyzer</h1>

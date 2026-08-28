@@ -30,7 +30,7 @@ tags=sentinel-2, water quality, lakes, chlorophyll, turbidity, NDCI, NDTI, OC3, 
 
 homepage=https://github.com/iliasmachairas/Lakes_Analyzer
 category=Plugins
-icon=icon.png
+icon=lake.png
 # experimental flag
 experimental=True
 
