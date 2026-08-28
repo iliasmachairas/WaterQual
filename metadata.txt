@@ -5,12 +5,12 @@
 [general]
 name=WaterQual
 qgisMinimumVersion=3.0
-description=Sentinel-2 water quality monitoring for lakes — chlorophyll-a and turbidity proxies (NDCI, NDTI) plus calibrated chlorophyll-a estimators (OC3, Gilerson), no account or API key required.
+description=Sentinel-2 water quality monitoring for lakes, reservoirs, and other inland/coastal waterbodies — chlorophyll-a and turbidity proxies (NDCI, NDTI) plus calibrated chlorophyll-a estimators (OC3, Gilerson), no account or API key required.
 version=0.1.0
 author=Ilias Machairas, Ashish Kuruvila
 email=iliasmachairas@outlook.com
 
-about=Searches Microsoft Planetary Computer for the least-cloudy Sentinel-2 L2A scene over a lake and date you choose, masks clouds/shadows and non-water pixels, and computes one of four water-quality algorithms: NDCI (unitless chlorophyll-a proxy), NDTI (unitless turbidity proxy), OC3 (calibrated chlorophyll-a for clear water), or Gilerson (calibrated chlorophyll-a for turbid water). Saves a georeferenced index GeoTIFF plus a report with summary statistics, and can optionally also save the raw RGB+NIR+SWIR imagery alongside it for visual monitoring. No sign-in or API key needed — Sentinel-2 is in Planetary Computer's open, public collection tier.
+about=Searches Microsoft Planetary Computer for the least-cloudy Sentinel-2 L2A scene over a waterbody and date you choose, masks clouds/shadows and non-water pixels, and computes one of four water-quality algorithms: NDCI (unitless chlorophyll-a proxy), NDTI (unitless turbidity proxy), OC3 (calibrated chlorophyll-a for clear water), or Gilerson (calibrated chlorophyll-a for turbid water). Works on lakes, reservoirs, ponds, and other water surfaces large enough for a stable sample at Sentinel-2's 10m resolution. Saves a georeferenced index GeoTIFF plus a report with summary statistics, and can optionally also save the raw RGB+NIR+SWIR imagery alongside it for visual monitoring. No sign-in or API key needed — Sentinel-2 is in Planetary Computer's open, public collection tier.
 
 tracker=https://github.com/iliasmachairas/WaterQual/issues
 repository=https://github.com/iliasmachairas/WaterQual
@@ -26,7 +26,7 @@ changelog=0.1.0
     - Area of interest by drawing a rectangle on the map or from an existing polygon layer.
 
 # Tags are comma separated with spaces allowed
-tags=sentinel-2, water quality, lakes, chlorophyll, turbidity, NDCI, NDTI, OC3, Gilerson, remote sensing, planetary computer, limnology
+tags=sentinel-2, water quality, lakes, reservoirs, inland waters, chlorophyll, turbidity, NDCI, NDTI, OC3, Gilerson, remote sensing, planetary computer, limnology
 
 homepage=https://github.com/iliasmachairas/WaterQual
 category=Plugins
