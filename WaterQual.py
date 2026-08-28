@@ -157,7 +157,7 @@ class WaterQual:
     def _show_help(self):
         """Open the online documentation (usage guide) in the system's default browser."""
         QDesktopServices.openUrl(
-            QUrl("https://github.com/iliasmachairas/WaterQual#readme"))
+            QUrl("https://waterqual.readthedocs.io/en/latest/usage.html"))
 
     # ── Analysis logic ────────────────────────────────────────────────────────
 
