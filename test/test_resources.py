@@ -18,7 +18,7 @@ from qgis.PyQt.QtGui import QIcon
 
 
 
-class Lake_AnalyzerDialogTest(unittest.TestCase):
+class WaterQualDialogTest(unittest.TestCase):
     """Test rerources work."""
 
     def setUp(self):
@@ -31,12 +31,12 @@ class Lake_AnalyzerDialogTest(unittest.TestCase):
 
     def test_icon_png(self):
         """Test we can click OK."""
-        path = ':/plugins/Lake_Analyzer/icon.png'
+        path = ':/plugins/WaterQual/icon.png'
         icon = QIcon(path)
         self.assertFalse(icon.isNull())
 
 if __name__ == "__main__":
-    suite = unittest.makeSuite(Lake_AnalyzerResourcesTest)
+    suite = unittest.makeSuite(WaterQualResourcesTest)
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
 

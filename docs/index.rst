@@ -1,5 +1,5 @@
-Lake Analyzer
-=============
+WaterQual
+=========
 
 .. image:: _static/icon.png
    :width: 120px
@@ -22,7 +22,7 @@ imagery via Microsoft Planetary Computer's STAC API — chlorophyll-a
 Overview
 --------
 
-Lake Analyzer lets you draw a lake's boundary (or pick an existing polygon
+WaterQual lets you draw a lake's boundary (or pick an existing polygon
 layer) on the QGIS map canvas, choose a date, and get back a georeferenced
 water-quality index raster plus a plain-text report — all without leaving
 QGIS. The search, download, and analysis run in a background thread so the
@@ -53,7 +53,7 @@ limitations.
 Source code
 -----------
 
-https://github.com/iliasmachairas/Lakes_Analyzer
+https://github.com/iliasmachairas/WaterQual
 
 Indices and tables
 ------------------

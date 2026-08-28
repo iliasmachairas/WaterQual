@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# build_plugin.sh — package the Lake Analyzer QGIS plugin into a clean
+# build_plugin.sh — package the WaterQual QGIS plugin into a clean
 # ZIP, commit + push the source to git, and drop the ZIP in your Downloads
 # folder ready to upload at https://plugins.qgis.org/plugins/add/
 #
@@ -14,9 +14,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-PLUGIN_DIR_NAME="$(basename "$SCRIPT_DIR")"          # lake_analyzer
+PLUGIN_DIR_NAME="$(basename "$SCRIPT_DIR")"          # water_qual
 VERSION="$(grep -E '^version=' metadata.txt | head -1 | cut -d= -f2 | tr -d '[:space:]')"
-ZIP_NAME="Lake-Analyzer-${VERSION}.zip"
+ZIP_NAME="WaterQual-${VERSION}.zip"
 DEST_DIR="${HOME}/Downloads"
 DEST_ZIP="${DEST_DIR}/${ZIP_NAME}"
 
@@ -123,9 +123,9 @@ if [ "$DO_GIT" -eq 1 ]; then
     echo ">> Pushed."
   else
     echo
-    echo ">> No 'origin' remote set. Repo: https://github.com/iliasmachairas/Lakes_Analyzer"
+    echo ">> No 'origin' remote set. Repo: https://github.com/iliasmachairas/WaterQual"
     echo "   Run:"
-    echo "     git remote add origin https://github.com/iliasmachairas/Lakes_Analyzer.git"
+    echo "     git remote add origin https://github.com/iliasmachairas/WaterQual.git"
     echo "     git push -u origin main"
   fi
 else

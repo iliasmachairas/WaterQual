@@ -1,7 +1,7 @@
 Plugin Builder Results
 
-Your plugin Lake_Analyzer was created in:
-    C:/Users/ilias/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins\lake_analyzer
+Your plugin WaterQual was created in:
+    C:/Users/ilias/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins\water_qual
 
 Your QGIS plugin directory is located at:
     C:/Users/ilias/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins
@@ -17,11 +17,11 @@ What's Next:
 
   * Test the plugin by enabling it in the QGIS plugin manager
 
-  * Customize it by editing the implementation file: ``Lake_Analyzer.py``
+  * Customize it by editing the implementation file: ``WaterQual.py``
 
   * Create your own custom icon, replacing the default icon.png
 
-  * Modify your user interface by opening Lake_Analyzer_dialog_base.ui in Qt Designer
+  * Modify your user interface by opening WaterQual_dialog_base.ui in Qt Designer
 
   * You can use the Makefile to compile your Ui and resource files when
     you make changes. This requires GNU make (gmake)

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Lake_AnalyzerDialogBase</class>
- <widget class="QDialog" name="Lake_AnalyzerDialogBase">
+ <class>WaterQualDialogBase</class>
+ <widget class="QDialog" name="WaterQualDialogBase">
   <property name="geometry">
    <rect><x>0</x><y>0</y><width>720</width><height>530</height></rect>
   </property>
   <property name="windowTitle">
-   <string>Lake Analyzer — Water Quality</string>
+   <string>WaterQual — Water Quality</string>
   </property>
 
   <!-- COLUMN 1: DATE -->
@@ -204,7 +204,7 @@ Coefficients are published example values, not calibrated for a specific lake �
   </widget>
 
   <!-- ADVANCED MASKING OPTIONS — expands to the RIGHT of the dialog, so it
-       never shifts anything below it. Lake_Analyzer_dialog.py toggles
+       never shifts anything below it. WaterQual_dialog.py toggles
        groupBox_advanced's visibility and resizes the dialog's *width*
        (setFixedWidth) between the collapsed and expanded values on
        btn_toggle_advanced.toggled — plain, reliable show/hide rather than

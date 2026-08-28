@@ -1,7 +1,7 @@
 Water Quality Algorithms
 =========================
 
-Lake Analyzer offers four algorithms, computed from Sentinel-2 L2A surface
+WaterQual offers four algorithms, computed from Sentinel-2 L2A surface
 reflectance bands, in two families:
 
 * **Quick proxies** (NDCI, NDTI) — unitless normalized-difference ratios,

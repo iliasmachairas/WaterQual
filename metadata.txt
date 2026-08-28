@@ -3,7 +3,7 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=Lake Analyzer
+name=WaterQual
 qgisMinimumVersion=3.0
 description=Sentinel-2 water quality monitoring for lakes — chlorophyll-a and turbidity proxies (NDCI, NDTI) plus calibrated chlorophyll-a estimators (OC3, Gilerson), no account or API key required.
 version=0.1.0
@@ -12,8 +12,8 @@ email=iliasmachairas@outlook.com
 
 about=Searches Microsoft Planetary Computer for the least-cloudy Sentinel-2 L2A scene over a lake and date you choose, masks clouds/shadows and non-water pixels, and computes one of four water-quality algorithms: NDCI (unitless chlorophyll-a proxy), NDTI (unitless turbidity proxy), OC3 (calibrated chlorophyll-a for clear water), or Gilerson (calibrated chlorophyll-a for turbid water). Saves a georeferenced index GeoTIFF plus a report with summary statistics, and can optionally also save the raw RGB+NIR+SWIR imagery alongside it for visual monitoring. No sign-in or API key needed — Sentinel-2 is in Planetary Computer's open, public collection tier.
 
-tracker=https://github.com/iliasmachairas/Lakes_Analyzer/issues
-repository=https://github.com/iliasmachairas/Lakes_Analyzer
+tracker=https://github.com/iliasmachairas/WaterQual/issues
+repository=https://github.com/iliasmachairas/WaterQual
 # End of mandatory metadata
 
 # Recommended items:
@@ -28,7 +28,7 @@ changelog=0.1.0
 # Tags are comma separated with spaces allowed
 tags=sentinel-2, water quality, lakes, chlorophyll, turbidity, NDCI, NDTI, OC3, Gilerson, remote sensing, planetary computer, limnology
 
-homepage=https://github.com/iliasmachairas/Lakes_Analyzer
+homepage=https://github.com/iliasmachairas/WaterQual
 category=Plugins
 icon=lake.png
 # experimental flag

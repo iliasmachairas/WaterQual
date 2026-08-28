@@ -77,7 +77,7 @@ Plugin not visible after installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Go to **Plugins → Manage and Install Plugins → Installed**.
-2. Make sure **Lake Analyzer** is ticked.
+2. Make sure **WaterQual** is ticked.
 3. If it does not appear, restart QGIS and check again.
 
 Output GeoTIFF is empty / all NaN
@@ -118,7 +118,7 @@ Reading the log
 
 All plugin events are written to the QGIS log:
 
-**View → Panels → Log Messages → Lake_Analyzer**
+**View → Panels → Log Messages → WaterQual**
 
 The log includes the STAC query, the selected scene ID, per-band download
 progress, and full Python tracebacks for any errors.
@@ -127,7 +127,7 @@ Reporting bugs
 --------------
 
 Please open an issue at:
-https://github.com/iliasmachairas/Lakes_Analyzer/issues
+https://github.com/iliasmachairas/WaterQual/issues
 
 Include:
 

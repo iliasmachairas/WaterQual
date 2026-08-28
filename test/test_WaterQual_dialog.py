@@ -16,18 +16,18 @@ import unittest
 
 from qgis.PyQt.QtGui import QDialogButtonBox, QDialog
 
-from Lake_Analyzer_dialog import Lake_AnalyzerDialog
+from WaterQual_dialog import WaterQualDialog
 
 from utilities import get_qgis_app
 QGIS_APP = get_qgis_app()
 
 
-class Lake_AnalyzerDialogTest(unittest.TestCase):
+class WaterQualDialogTest(unittest.TestCase):
     """Test dialog works."""
 
     def setUp(self):
         """Runs before each test."""
-        self.dialog = Lake_AnalyzerDialog(None)
+        self.dialog = WaterQualDialog(None)
 
     def tearDown(self):
         """Runs after each test."""
@@ -49,7 +49,7 @@ class Lake_AnalyzerDialogTest(unittest.TestCase):
         self.assertEqual(result, QDialog.Rejected)
 
 if __name__ == "__main__":
-    suite = unittest.makeSuite(Lake_AnalyzerDialogTest)
+    suite = unittest.makeSuite(WaterQualDialogTest)
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
 

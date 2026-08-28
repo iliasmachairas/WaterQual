@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/plugins/Lake_Analyzer" >
+    <qresource prefix="/plugins/WaterQual" >
         <file>icon.png</file>
     </qresource>
 </RCC>

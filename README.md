@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="lake.png" width="120" alt="Lake Analyzer logo" />
+  <img src="lake.png" width="120" alt="WaterQual logo" />
 </p>
 
-<h1 align="center">Lake Analyzer</h1>
+<h1 align="center">WaterQual</h1>
 
 <p align="center">Sentinel-2 water quality monitoring for lakes, straight inside QGIS.</p>
 
 <p align="center">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue" /></a>
   <img alt="QGIS" src="https://img.shields.io/badge/QGIS-%E2%89%A5%203.0-589632" />
-  <a href="https://lake-analyzer.readthedocs.io/en/latest/?badge=latest"><img alt="Docs" src="https://readthedocs.org/projects/lake-analyzer/badge/?version=latest" /></a>
+  <a href="https://waterqual.readthedocs.io/en/latest/?badge=latest"><img alt="Docs" src="https://readthedocs.org/projects/waterqual/badge/?version=latest" /></a>
   <img alt="Sign-in required" src="https://img.shields.io/badge/sign--in%20required-no-brightgreen" />
 </p>
 
@@ -81,7 +81,7 @@ small ponds or narrow channels may not have enough clean water pixels for a stab
 **From a ZIP file**
 
 1. Build the ZIP with `./build_plugin.sh` (see [Development](#️-development-setup) below), or
-   download a release from the [GitHub repository](https://github.com/iliasmachairas/Lakes_Analyzer).
+   download a release from the [GitHub repository](https://github.com/iliasmachairas/WaterQual).
 2. In QGIS: **Plugins → Manage and Install Plugins → Install from ZIP**.
 3. Select the ZIP and click **Install Plugin**.
 
@@ -98,7 +98,7 @@ GDAL and NumPy are already available to QGIS's Python in any standard QGIS insta
 
 ## 🚀 Usage
 
-1. Open the plugin from the toolbar icon or **Plugins → Lake Analyzer**.
+1. Open the plugin from the toolbar icon or **Plugins → WaterQual**.
 2. Pick a **date** and a **±day search window**.
 3. Choose an algorithm — **NDCI**, **NDTI**, **OC3**, or **Gilerson** (hover the ⓘ next to each).
 4. Click **Start drawing** and drag a rectangle over the lake, or select an existing polygon
@@ -106,7 +106,7 @@ GDAL and NumPy are already available to QGIS's Python in any standard QGIS insta
 5. (Optional) Expand **Advanced masking options** to change cloud masking or thresholds.
 6. Set an **output folder**, then click **Run**.
 
-Full walkthrough: **[lake-analyzer.readthedocs.io](https://lake-analyzer.readthedocs.io)**
+Full walkthrough: **[waterqual.readthedocs.io](https://waterqual.readthedocs.io)**
 (source in [`docs/`](docs/) — connect this repo at readthedocs.org to publish it).
 
 ### Output
@@ -192,11 +192,11 @@ This plugin's working copy lives directly under the QGIS profile's plugin folder
 effect on the next reload — no build/deploy step:
 
 ```
-.../AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/lake_analyzer
+.../AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/water_qual
 ```
 
 Install the [Plugin Reloader](https://plugins.qgis.org/plugins/plugin_reloader/) QGIS plugin and
-assign it a shortcut to reload Lake Analyzer after saving changes, without restarting QGIS.
+assign it a shortcut to reload WaterQual after saving changes, without restarting QGIS.
 
 ### Packaging a release ZIP
 
@@ -205,15 +205,15 @@ assign it a shortcut to reload Lake Analyzer after saving changes, without resta
 ./build_plugin.sh --no-git   # just build the zip, skip git steps
 ```
 
-Drops `Lake-Analyzer-<version>.zip` in `~/Downloads`, ready to upload at
+Drops `WaterQual-<version>.zip` in `~/Downloads`, ready to upload at
 [plugins.qgis.org/plugins/add](https://plugins.qgis.org/plugins/add/).
 
 ## 🏗️ Architecture
 
 ```mermaid
 flowchart TD
-    init["__init__.py"] --> plugin["Lake_Analyzer.py"]
-    plugin --> dialog["Lake_Analyzer_dialog.py"]
+    init["__init__.py"] --> plugin["WaterQual.py"]
+    plugin --> dialog["WaterQual_dialog.py"]
     plugin --> extent["extent_tool.py"]
     plugin --> worker["worker.py"]
     worker --> pipeline["pipeline.py"]
@@ -226,17 +226,17 @@ flowchart TD
 ```
 
 ```
-__init__.py                 -> classFactory(iface)
-Lake_Analyzer.py             -> main plugin class (initGui/unload/run), wires the dialog
-Lake_Analyzer_dialog.py       -> QDialog: typed getters/setters over the Qt Designer UI
-Lake_Analyzer_dialog_base.ui   -> Qt Designer UI file
-extent_tool.py               -> rubber-band AOI drawing tool for the map canvas
-worker.py                    -> QThread wrapping pipeline.py, emits progress/status/result
-pipeline.py                  -> orchestrates search -> masking -> index computation -> save
-indices.py                   -> NDCI / NDTI / OC3 / Gilerson formulas, classification, water masking
-search.py                    -> STAC query + anonymous SAS URL signing
-scene.py                     -> GDAL/VSICURL streaming, reprojection, resampling, GeoTIFF write
-aoi.py                       -> AOI bounding-box / GeoJSON helper
+__init__.py               -> classFactory(iface)
+WaterQual.py               -> main plugin class (initGui/unload/run), wires the dialog
+WaterQual_dialog.py        -> QDialog: typed getters/setters over the Qt Designer UI
+WaterQual_dialog_base.ui   -> Qt Designer UI file
+extent_tool.py             -> rubber-band AOI drawing tool for the map canvas
+worker.py                  -> QThread wrapping pipeline.py, emits progress/status/result
+pipeline.py                -> orchestrates search -> masking -> index computation -> save
+indices.py                 -> NDCI / NDTI / OC3 / Gilerson formulas, classification, water masking
+search.py                  -> STAC query + anonymous SAS URL signing
+scene.py                   -> GDAL/VSICURL streaming, reprojection, resampling, GeoTIFF write
+aoi.py                     -> AOI bounding-box / GeoJSON helper
 ```
 
 ## ⚖️ License

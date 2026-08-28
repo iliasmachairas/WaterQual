@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-project = "Lake Analyzer"
+project = "WaterQual"
 author = "Ilias Machairas, Ashish Kuruvila"
 copyright = "2026, Ilias Machairas, Ashish Kuruvila"
 release = "0.1"

@@ -14,9 +14,9 @@ script.
    ┌─────────────────────────────────────────────────┐
    │                   QGIS UI layer                  │
    │                                                  │
-   │  Lake_Analyzer               (main plugin class) │
-   │  Lake_AnalyzerDialog         (dialog + getters)  │
-   │  ExtentDrawingTool           (rubber-band tool)  │
+   │  WaterQual              (main plugin class)      │
+   │  WaterQualDialog        (dialog + getters)       │
+   │  ExtentDrawingTool      (rubber-band tool)        │
    └──────────────────────┬──────────────────────────┘
                           │  spawns
                           ▼
@@ -40,8 +40,8 @@ script.
 Module reference
 ----------------
 
-Lake_Analyzer.py
-~~~~~~~~~~~~~~~~~
+WaterQual.py
+~~~~~~~~~~~~
 
 The main QGIS plugin class. Responsible for:
 
@@ -50,11 +50,11 @@ The main QGIS plugin class. Responsible for:
 * Connecting all signal handlers (browse, draw, run, help)
 * Launching ``AnalysisWorker`` and routing its signals back to the dialog
 
-Lake_Analyzer_dialog.py
-~~~~~~~~~~~~~~~~~~~~~~~~
+WaterQual_dialog.py
+~~~~~~~~~~~~~~~~~~~
 
 A thin wrapper around the Qt Designer ``.ui`` file. Exposes typed getter
-methods for every user input so that ``Lake_Analyzer.py`` never has to
+methods for every user input so that ``WaterQual.py`` never has to
 touch raw Qt widgets:
 
 * ``get_algorithm()`` → ``"ndci"`` / ``"ndti"`` / ``"oc3"`` / ``"gilerson"``

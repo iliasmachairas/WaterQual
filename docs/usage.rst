@@ -4,8 +4,8 @@ Usage
 Opening the plugin
 ------------------
 
-Click the **Lake Analyzer** button in the QGIS toolbar, or navigate to
-**Plugins → Lake Analyzer** in the menu bar.
+Click the **WaterQual** button in the QGIS toolbar, or navigate to
+**Plugins → WaterQual** in the menu bar.
 
 Step 1 — Pick a date
 ---------------------
@@ -113,4 +113,4 @@ Viewing logs
 ------------
 
 Detailed per-step logging is available in
-**View → Panels → Log Messages → Lake_Analyzer**.
+**View → Panels → Log Messages → WaterQual**.

@@ -150,7 +150,7 @@ def run_water_quality(
         report_path = os.path.join(output_directory, f"{output_base}_report.txt")
         with open(report_path, "w") as f:
             f.write(
-                f"Lake Analyzer — Water Quality Report\n"
+                f"WaterQual — Analysis Report\n"
                 f"{'=' * 40}\n"
                 f"Tile ID: {tile_id}\nDate: {datetime_str}\nPlatform: Sentinel-2 L2A\n"
                 f"Algorithm: {algo['label']} ({algo['short']})\n"

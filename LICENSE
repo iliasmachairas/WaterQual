@@ -1,4 +1,4 @@
-Lake Analyzer — a QGIS plugin for Sentinel-2 water quality monitoring
+WaterQual — a QGIS plugin for Sentinel-2 water quality monitoring
 (chlorophyll-a via NDCI, turbidity via NDTI).
 Copyright (C) 2026  Ilias Machairas, Ashish Kuruvila
 

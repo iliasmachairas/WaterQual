@@ -1,5 +1,5 @@
 #/***************************************************************************
-# Lake_Analyzer
+# WaterQual
 #
 # This plugin is about the water quality of lakes using Sentinel 2 images
 #							 -------------------
@@ -38,15 +38,15 @@ LOCALES =
 # translation
 SOURCES = \
 	__init__.py \
-	Lake_Analyzer.py Lake_Analyzer_dialog.py
+	WaterQual.py WaterQual_dialog.py
 
-PLUGINNAME = Lake_Analyzer
+PLUGINNAME = WaterQual
 
 PY_FILES = \
 	__init__.py \
-	Lake_Analyzer.py Lake_Analyzer_dialog.py
+	WaterQual.py WaterQual_dialog.py
 
-UI_FILES = Lake_Analyzer_dialog_base.ui
+UI_FILES = WaterQual_dialog_base.ui
 
 EXTRAS = metadata.txt icon.png
 
