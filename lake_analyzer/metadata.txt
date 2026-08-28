@@ -1,0 +1,49 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Lake Analyzer
+qgisMinimumVersion=3.0
+description=Sentinel-2 water quality monitoring for lakes — chlorophyll-a and turbidity proxies (NDCI, NDTI) plus calibrated chlorophyll-a estimators (OC3, Gilerson), no account or API key required.
+version=0.1.0
+author=Ilias Machairas, Ashish Kuruvila
+email=iliasmachairas@outlook.com
+
+about=Searches Microsoft Planetary Computer for the least-cloudy Sentinel-2 L2A scene over a lake and date you choose, masks clouds/shadows and non-water pixels, and computes one of four water-quality algorithms: NDCI (unitless chlorophyll-a proxy), NDTI (unitless turbidity proxy), OC3 (calibrated chlorophyll-a for clear water), or Gilerson (calibrated chlorophyll-a for turbid water). Saves a georeferenced index GeoTIFF plus a report with summary statistics, and can optionally also save the raw RGB+NIR+SWIR imagery alongside it for visual monitoring. No sign-in or API key needed — Sentinel-2 is in Planetary Computer's open, public collection tier.
+
+tracker=https://github.com/iliasmachairas/Lakes_Analyzer/issues
+repository=https://github.com/iliasmachairas/Lakes_Analyzer
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+changelog=0.1.0
+    - First release.
+    - Four water-quality algorithms over Sentinel-2 L2A: NDCI and NDTI (quick unitless chlorophyll-a/turbidity proxies) plus OC3 and Gilerson (calibrated chlorophyll-a estimators for clear vs. turbid water), restricted to water pixels via the SCL band, with an optional raw RGB+NIR+SWIR companion GeoTIFF for visual monitoring.
+    - Cloud/shadow masking and cloud-percentage thresholds moved into a collapsed "Advanced masking options" panel with sane defaults.
+    - Area of interest by drawing a rectangle on the map or from an existing polygon layer.
+
+# Tags are comma separated with spaces allowed
+tags=sentinel-2, water quality, lakes, chlorophyll, turbidity, NDCI, NDTI, OC3, Gilerson, remote sensing, planetary computer, limnology
+
+homepage=https://github.com/iliasmachairas/Lakes_Analyzer
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+# Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Lake_AnalyzerDialogBase</class>
+ <widget class="QDialog" name="Lake_AnalyzerDialogBase">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>720</width><height>530</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lake Analyzer — Water Quality</string>
+  </property>
+
+  <!-- COLUMN 1: DATE -->
+  <widget class="QLabel" name="label_date">
+   <property name="geometry"><rect><x>10</x><y>10</y><width>150</width><height>16</height></rect></property>
+   <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+   <property name="text"><string>Pick the date</string></property>
+  </widget>
+  <widget class="QCalendarWidget" name="calendarWidget">
+   <property name="geometry"><rect><x>10</x><y>30</y><width>261</width><height>155</height></rect></property>
+  </widget>
+  <widget class="QLabel" name="label_selectedDate">
+   <property name="geometry"><rect><x>10</x><y>187</y><width>261</width><height>16</height></rect></property>
+   <property name="text"><string>Selected: —</string></property>
+  </widget>
+
+  <!-- COLUMN 2: ALGORITHM + SEARCH WINDOW -->
+  <widget class="QLabel" name="label_algorithm">
+   <property name="geometry"><rect><x>290</x><y>10</y><width>300</width><height>16</height></rect></property>
+   <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+   <property name="text"><string>Water quality algorithm (see ⓘ for each)</string></property>
+  </widget>
+  <widget class="QRadioButton" name="radioBtn_algo_ndci">
+   <property name="geometry"><rect><x>300</x><y>32</y><width>250</width><height>18</height></rect></property>
+   <property name="text"><string>Chlorophyll-a proxy (NDCI)</string></property>
+   <property name="checked"><bool>true</bool></property>
+  </widget>
+  <widget class="QLabel" name="icon_algo_ndci">
+   <property name="geometry"><rect><x>555</x><y>32</y><width>16</width><height>18</height></rect></property>
+   <property name="font"><font><bold>true</bold></font></property>
+   <property name="styleSheet"><string>color: #0066cc;</string></property>
+   <property name="text"><string>ⓘ</string></property>
+   <property name="toolTip">
+    <string>NDCI — Normalized Difference Chlorophyll Index, a quick unitless chlorophyll-a proxy needing no calibration.
+
+(B05-B04)/(B05+B04) — Red Edge vs. Red reflectance contrast. Higher values suggest more chlorophyll-a and greater algal bloom potential.
+
+Reference: Mishra &amp; Mishra (2012), Remote Sensing of Environment 117.
+
+Relative screening proxy, not a calibrated mg/m³ concentration — for an absolute estimate see Gilerson below.</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioBtn_algo_ndti">
+   <property name="geometry"><rect><x>300</x><y>54</y><width>250</width><height>18</height></rect></property>
+   <property name="text"><string>Turbidity proxy (NDTI)</string></property>
+  </widget>
+  <widget class="QLabel" name="icon_algo_ndti">
+   <property name="geometry"><rect><x>555</x><y>54</y><width>16</width><height>18</height></rect></property>
+   <property name="font"><font><bold>true</bold></font></property>
+   <property name="styleSheet"><string>color: #0066cc;</string></property>
+   <property name="text"><string>ⓘ</string></property>
+   <property name="toolTip">
+    <string>NDTI — Normalized Difference Turbidity Index, a quick unitless turbidity proxy needing no calibration.
+
+(B04-B03)/(B04+B03) — Red vs. Green reflectance contrast; Red brightens as suspended sediment increases. Higher values suggest higher turbidity and lower water clarity.
+
+Reference: Lacaux et al. (2007), Remote Sensing of Environment 106(1).
+
+Relative screening proxy, not a calibrated NTU value.</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioBtn_algo_oc3">
+   <property name="geometry"><rect><x>300</x><y>76</y><width>250</width><height>18</height></rect></property>
+   <property name="text"><string>Clear-water chlorophyll (OC3)</string></property>
+  </widget>
+  <widget class="QLabel" name="icon_algo_oc3">
+   <property name="geometry"><rect><x>555</x><y>76</y><width>16</width><height>18</height></rect></property>
+   <property name="font"><font><bold>true</bold></font></property>
+   <property name="styleSheet"><string>color: #0066cc;</string></property>
+   <property name="text"><string>ⓘ</string></property>
+   <property name="toolTip">
+    <string>OC3 — a blue/green band-ratio chlorophyll-a algorithm for clear, low-turbidity water.
+
+Uses max(B01,B02)/B03 (Blue vs. Green): chlorophyll absorbs blue light, so the ratio falls as chlorophyll-a rises.
+
+Best for clear lakes — sediment/CDOM in turbid water can throw this off; use Gilerson for turbid lakes instead.
+
+Reference: O'Reilly et al. (1998), Journal of Geophysical Research 103(C11).
+
+Coefficients are published example values, not calibrated for a specific lake — treat as a relative screening signal, not an accurate mg/m³ reading, until calibrated against in-situ samples.</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioBtn_algo_gilerson">
+   <property name="geometry"><rect><x>300</x><y>98</y><width>250</width><height>18</height></rect></property>
+   <property name="text"><string>Turbid-water chlorophyll (Gilerson)</string></property>
+  </widget>
+  <widget class="QLabel" name="icon_algo_gilerson">
+   <property name="geometry"><rect><x>555</x><y>98</y><width>16</width><height>18</height></rect></property>
+   <property name="font"><font><bold>true</bold></font></property>
+   <property name="styleSheet"><string>color: #0066cc;</string></property>
+   <property name="text"><string>ⓘ</string></property>
+   <property name="toolTip">
+    <string>Gilerson — a red/red-edge band-ratio chlorophyll-a algorithm for turbid, algae-rich water.
+
+Uses B05/B04 (Red Edge vs. Red): Red sits in chlorophyll's strongest absorption band, while Red Edge rises with algal biomass scattering — the ratio tracks chlorophyll-a even when suspended sediment is also present.
+
+Best for turbid inland/coastal lakes — for clear open water use OC3 instead.
+
+Reference: Gilerson et al. (2010), Optics Express 18(23).
+
+Coefficients are published example values, not calibrated for a specific lake — treat as a relative screening signal, not an accurate mg/m³ reading, until calibrated against in-situ samples.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_extraDays">
+   <property name="geometry"><rect><x>290</x><y>128</y><width>250</width><height>16</height></rect></property>
+   <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+   <property name="text"><string>Search window (±days)</string></property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_extraDays">
+   <property name="geometry"><rect><x>300</x><y>150</y><width>80</width><height>22</height></rect></property>
+   <property name="minimum"><number>1</number></property>
+   <property name="maximum"><number>180</number></property>
+   <property name="value"><number>15</number></property>
+  </widget>
+
+  <!-- STUDY AREA -->
+  <widget class="QLabel" name="label_studyArea">
+   <property name="geometry"><rect><x>10</x><y>215</y><width>300</width><height>16</height></rect></property>
+   <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+   <property name="text"><string>Select study area</string></property>
+  </widget>
+  <widget class="QLabel" name="icon_studyArea_tiles">
+   <property name="geometry"><rect><x>140</x><y>215</y><width>16</width><height>16</height></rect></property>
+   <property name="font"><font><bold>true</bold></font></property>
+   <property name="styleSheet"><string>color: #0066cc;</string></property>
+   <property name="text"><string>ⓘ</string></property>
+   <property name="toolTip">
+    <string>Each search returns exactly one scene — a Sentinel-2 tile is roughly 110×110 km. If your area is bigger than that, or straddles a tile boundary, the plugin picks the scene with the largest overlap with your area (not just the least cloudy one) and warns you if the result still doesn't fully cover it.</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioBtn_aoi_draw">
+   <property name="geometry"><rect><x>10</x><y>236</y><width>130</width><height>18</height></rect></property>
+   <property name="text"><string>Draw on map</string></property>
+   <property name="checked"><bool>true</bool></property>
+  </widget>
+  <widget class="QRadioButton" name="radioBtn_aoi_layer">
+   <property name="geometry"><rect><x>150</x><y>236</y><width>90</width><height>18</height></rect></property>
+   <property name="text"><string>From layer</string></property>
+  </widget>
+  <widget class="QLabel" name="icon_aoi_layer_crs">
+   <property name="geometry"><rect><x>240</x><y>236</y><width>16</width><height>18</height></rect></property>
+   <property name="font"><font><bold>true</bold></font></property>
+   <property name="styleSheet"><string>color: #0066cc;</string></property>
+   <property name="text"><string>ⓘ</string></property>
+   <property name="toolTip">
+    <string>Any CRS works — the layer's coordinate reference system doesn't matter. Its features are automatically reprojected to WGS-84 (EPSG:4326) before searching, whatever projection the layer is currently in.</string>
+   </property>
+  </widget>
+
+  <!-- Draw-on-map controls (hidden when "From layer" is selected) -->
+  <widget class="QPushButton" name="btn_draw_area">
+   <property name="geometry"><rect><x>10</x><y>260</y><width>110</width><height>23</height></rect></property>
+   <property name="text"><string>Start drawing</string></property>
+  </widget>
+  <widget class="QLabel" name="label_top">
+   <property name="geometry"><rect><x>140</x><y>263</y><width>30</width><height>16</height></rect></property>
+   <property name="text"><string>Top</string></property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_top">
+   <property name="geometry"><rect><x>175</x><y>260</y><width>85</width><height>21</height></rect></property>
+   <property name="placeholderText"><string>Max Lat</string></property>
+  </widget>
+  <widget class="QLabel" name="label_left">
+   <property name="geometry"><rect><x>270</x><y>263</y><width>30</width><height>16</height></rect></property>
+   <property name="text"><string>Left</string></property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_left">
+   <property name="geometry"><rect><x>305</x><y>260</y><width>85</width><height>21</height></rect></property>
+   <property name="placeholderText"><string>Min Lon</string></property>
+  </widget>
+  <widget class="QLabel" name="label_right">
+   <property name="geometry"><rect><x>400</x><y>263</y><width>35</width><height>16</height></rect></property>
+   <property name="text"><string>Right</string></property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_right">
+   <property name="geometry"><rect><x>440</x><y>260</y><width>85</width><height>21</height></rect></property>
+   <property name="placeholderText"><string>Max Lon</string></property>
+  </widget>
+  <widget class="QLabel" name="label_bottom">
+   <property name="geometry"><rect><x>535</x><y>263</y><width>45</width><height>16</height></rect></property>
+   <property name="text"><string>Bottom</string></property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_bottom">
+   <property name="geometry"><rect><x>585</x><y>260</y><width>85</width><height>21</height></rect></property>
+   <property name="placeholderText"><string>Min Lat</string></property>
+  </widget>
+
+  <!-- From-layer controls (hidden when "Draw on map" is selected; same row) -->
+  <widget class="QComboBox" name="comboBox_aoi_layer">
+   <property name="geometry"><rect><x>10</x><y>260</y><width>400</width><height>22</height></rect></property>
+  </widget>
+  <widget class="QLabel" name="label_aoi_layer_hint">
+   <property name="geometry"><rect><x>10</x><y>286</y><width>630</width><height>16</height></rect></property>
+   <property name="text"><string>Uses every feature in the layer; the output is masked exactly to the polygon boundary.</string></property>
+  </widget>
+
+  <!-- ADVANCED MASKING OPTIONS — expands to the RIGHT of the dialog, so it
+       never shifts anything below it. Lake_Analyzer_dialog.py toggles
+       groupBox_advanced's visibility and resizes the dialog's *width*
+       (setFixedWidth) between the collapsed and expanded values on
+       btn_toggle_advanced.toggled — plain, reliable show/hide rather than
+       a custom collapsible-widget's own click handling. -->
+  <widget class="QPushButton" name="btn_toggle_advanced">
+   <property name="geometry"><rect><x>10</x><y>316</y><width>320</width><height>24</height></rect></property>
+   <property name="text"><string>▸ Advanced masking options</string></property>
+   <property name="checkable"><bool>true</bool></property>
+   <property name="checked"><bool>false</bool></property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_advanced">
+   <property name="geometry"><rect><x>730</x><y>10</y><width>330</width><height>310</height></rect></property>
+   <property name="title"><string>Advanced masking options</string></property>
+
+   <widget class="QLabel" name="label_cloudTypes">
+    <property name="geometry"><rect><x>10</x><y>24</y><width>300</width><height>16</height></rect></property>
+    <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+    <property name="text"><string>Cloud &amp; shadow types to mask</string></property>
+   </widget>
+   <widget class="QCheckBox" name="cb_cloud_shadows">
+    <property name="geometry"><rect><x>20</x><y>46</y><width>250</width><height>18</height></rect></property>
+    <property name="text"><string>Cloud shadows</string></property>
+    <property name="checked"><bool>true</bool></property>
+   </widget>
+   <widget class="QCheckBox" name="cb_cloud_high">
+    <property name="geometry"><rect><x>20</x><y>68</y><width>250</width><height>18</height></rect></property>
+    <property name="text"><string>Clouds high probability</string></property>
+    <property name="checked"><bool>true</bool></property>
+   </widget>
+   <widget class="QCheckBox" name="cb_cloud_med">
+    <property name="geometry"><rect><x>20</x><y>90</y><width>250</width><height>18</height></rect></property>
+    <property name="text"><string>Clouds medium probability</string></property>
+    <property name="checked"><bool>true</bool></property>
+   </widget>
+   <widget class="QCheckBox" name="cb_cloud_low">
+    <property name="geometry"><rect><x>20</x><y>112</y><width>250</width><height>18</height></rect></property>
+    <property name="text"><string>Clouds low probability</string></property>
+   </widget>
+   <widget class="QCheckBox" name="cb_cirrus">
+    <property name="geometry"><rect><x>20</x><y>134</y><width>150</width><height>18</height></rect></property>
+    <property name="text"><string>Thin cirrus</string></property>
+   </widget>
+   <widget class="QPushButton" name="btn_select_all">
+    <property name="geometry"><rect><x>20</x><y>160</y><width>140</width><height>23</height></rect></property>
+    <property name="text"><string>Select all</string></property>
+   </widget>
+   <widget class="QPushButton" name="btn_unselect_all">
+    <property name="geometry"><rect><x>170</x><y>160</y><width>140</width><height>23</height></rect></property>
+    <property name="text"><string>Unselect all</string></property>
+   </widget>
+
+   <widget class="QLabel" name="label_thresholds">
+    <property name="geometry"><rect><x>10</x><y>196</y><width>250</width><height>16</height></rect></property>
+    <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+    <property name="text"><string>Cloud thresholds (%)</string></property>
+   </widget>
+   <widget class="QLabel" name="label_maxTile">
+    <property name="geometry"><rect><x>20</x><y>218</y><width>140</width><height>16</height></rect></property>
+    <property name="text"><string>Max tile cloud cover</string></property>
+   </widget>
+   <widget class="QLabel" name="icon_maxTile">
+    <property name="geometry"><rect><x>160</x><y>218</y><width>16</width><height>16</height></rect></property>
+    <property name="font"><font><bold>true</bold></font></property>
+    <property name="styleSheet"><string>color: #0066cc;</string></property>
+    <property name="text"><string>ⓘ</string></property>
+    <property name="toolTip">
+     <string>The maximum whole-tile cloud cover (%) a scene may have, per its catalog metadata, to even be considered a candidate. This is a coarse pre-filter applied before your area of interest is looked at. Set to 100 to accept any tile and let "Max AOI cloud tolerance" do the real filtering for your specific area.</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_maxCloudTile">
+    <property name="geometry"><rect><x>180</x><y>216</y><width>70</width><height>22</height></rect></property>
+    <property name="text"><string>100</string></property>
+   </widget>
+   <widget class="QLabel" name="label_maxTol">
+    <property name="geometry"><rect><x>20</x><y>246</y><width>160</width><height>16</height></rect></property>
+    <property name="text"><string>Max AOI cloud tolerance</string></property>
+   </widget>
+   <widget class="QLabel" name="icon_maxTol">
+    <property name="geometry"><rect><x>185</x><y>246</y><width>16</width><height>16</height></rect></property>
+    <property name="font"><font><bold>true</bold></font></property>
+    <property name="styleSheet"><string>color: #0066cc;</string></property>
+    <property name="text"><string>ⓘ</string></property>
+    <property name="toolTip">
+     <string>The maximum cloud/shadow cover (%) allowed WITHIN your actual area of interest, measured pixel-by-pixel after download. If exceeded, the run is skipped (a report is still written explaining why). Default 20.</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_maxCloudTol">
+    <property name="geometry"><rect><x>205</x><y>244</y><width>70</width><height>22</height></rect></property>
+    <property name="text"><string>20</string></property>
+   </widget>
+
+   <widget class="QCheckBox" name="cb_restrict_water">
+    <property name="geometry"><rect><x>20</x><y>276</y><width>260</width><height>18</height></rect></property>
+    <property name="text"><string>Restrict to water pixels only</string></property>
+    <property name="checked"><bool>true</bool></property>
+   </widget>
+   <widget class="QLabel" name="icon_restrict_water">
+    <property name="geometry"><rect><x>285</x><y>276</y><width>16</width><height>18</height></rect></property>
+    <property name="font"><font><bold>true</bold></font></property>
+    <property name="styleSheet"><string>color: #0066cc;</string></property>
+    <property name="text"><string>ⓘ</string></property>
+    <property name="toolTip">
+     <string>Uses the Sentinel-2 SCL band's "Water" class to exclude land, vegetation, and other non-water pixels from the index calculation, so the result reflects only the waterbody itself. Recommended on.</string>
+    </property>
+   </widget>
+  </widget>
+
+  <!-- OUTPUT — a fixed row directly below the toggle button; unaffected by
+       the advanced panel's collapsed/expanded state since it now expands
+       sideways instead of pushing content down. -->
+  <widget class="QLabel" name="label_output">
+   <property name="geometry"><rect><x>10</x><y>352</y><width>250</width><height>16</height></rect></property>
+   <property name="font"><font><weight>75</weight><bold>true</bold></font></property>
+   <property name="text"><string>Select the output directory</string></property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_output">
+   <property name="geometry"><rect><x>20</x><y>372</y><width>450</width><height>21</height></rect></property>
+  </widget>
+  <widget class="QToolButton" name="toolButton">
+   <property name="geometry"><rect><x>480</x><y>372</y><width>23</width><height>20</height></rect></property>
+   <property name="text"><string>...</string></property>
+  </widget>
+  <widget class="QCheckBox" name="cb_report">
+   <property name="geometry"><rect><x>520</x><y>352</y><width>150</width><height>18</height></rect></property>
+   <property name="text"><string>Create report</string></property>
+   <property name="checked"><bool>true</bool></property>
+  </widget>
+  <widget class="QCheckBox" name="cb_open_output">
+   <property name="geometry"><rect><x>520</x><y>375</y><width>190</width><height>18</height></rect></property>
+   <property name="text"><string>Open output folder after run</string></property>
+  </widget>
+  <widget class="QCheckBox" name="cb_also_raw">
+   <property name="geometry"><rect><x>20</x><y>396</y><width>680</width><height>18</height></rect></property>
+   <property name="text"><string>Also download raw satellite data (RGB+NIR+SWIR), for visual monitoring</string></property>
+   <property name="checked"><bool>true</bool></property>
+  </widget>
+
+  <!-- STATUS + PROGRESS -->
+  <widget class="QLabel" name="label_status">
+   <property name="geometry"><rect><x>20</x><y>422</y><width>680</width><height>18</height></rect></property>
+   <property name="text"><string>Ready.</string></property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry"><rect><x>20</x><y>444</y><width>680</width><height>23</height></rect></property>
+   <property name="value"><number>0</number></property>
+  </widget>
+
+  <!-- BUTTONS -->
+  <widget class="QPushButton" name="btn_help">
+   <property name="geometry"><rect><x>20</x><y>476</y><width>80</width><height>28</height></rect></property>
+   <property name="text"><string>Help</string></property>
+  </widget>
+  <widget class="QPushButton" name="btn_run">
+   <property name="geometry"><rect><x>300</x><y>476</y><width>140</width><height>28</height></rect></property>
+   <property name="text"><string>Run</string></property>
+  </widget>
+  <widget class="QPushButton" name="btn_close">
+   <property name="geometry"><rect><x>620</x><y>476</y><width>80</width><height>28</height></rect></property>
+   <property name="text"><string>Close</string></property>
+  </widget>
+
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

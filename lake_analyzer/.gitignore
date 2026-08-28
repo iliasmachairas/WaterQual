@@ -1,0 +1,39 @@
+# Claude Code
+CLAUDE.md
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Distribution / packaging
+dist/
+build/
+*.zip
+
+# Virtual environments
+.env
+.venv
+env/
+
+# QGIS / editor cruft
+*.qgis2
+*.bak
+
+# Output
+output/
+outputs/
+*.tif
+*.tiff
+
+# Sphinx build output
+docs/_build/
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
